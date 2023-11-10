@@ -254,6 +254,10 @@ def run():
                     ("validation/f1", f1.mean())]
                 logger.list_of_scalars_summary(evaluation_metrics, epoch)
 
+    
+    # adding some code to save as a yolo weights model
+    model = load_model("../config/yolov3-custom.cfg", "../checkpoints/yolov3_ckpt_300.pth")
+    model.save_darknet_weights("../weights/yolov3-custom.weights")
 
 if __name__ == "__main__":
     run()
